@@ -1,0 +1,47 @@
+
+
+
+PROGRAM FIZCON VERSION 8.19                              Run on 26-Jan-2021
+
+Input File Specification------------------------endf.dat
+Check the Entire File
+Sum Up Tests will be Omitted
+Deviant Point Check will be Omitted
+Consecutive Equal Value Check will be Omitted
+
+TAPE BEING PROCESSED IS NUMBERED    1
+   LABEL IS                                                                    
+
+
+ Check material  64-Gd-155  MAT 6434
+
+
+  ERROR(S) FOUND IN MAT=6434, MF=12, MT= 61
+     SUM OF TRANSITION PROBABILITIES= 1.0001E+00 FOR MT=  61
+
+
+  ERROR(S) FOUND IN MAT=6434, MF=12, MT= 64
+     SUM OF TRANSITION PROBABILITIES= 9.9990E-01 FOR MT=  64
+
+
+  ERROR(S) FOUND IN MAT=6434, MF=12, MT= 68
+     SUM OF TRANSITION PROBABILITIES= 9.9990E-01 FOR MT=  68
+
+
+  ERROR(S) FOUND IN MAT=6434, MF=12, MT= 70
+     SUM OF TRANSITION PROBABILITIES= 1.0001E+00 FOR MT=  70
+
+
+  ERROR(S) FOUND IN MAT=6434, MF=12, MT= 85
+     SUM OF TRANSITION PROBABILITIES= 9.9990E-01 FOR MT=  85
+
+
+  ERROR(S) FOUND IN MAT=6434, MF=12, MT=605
+     SUM OF TRANSITION PROBABILITIES= 9.9990E-01 FOR MT= 605
+
+
+  ERROR(S) FOUND IN MAT=6434, MF=12, MT=609
+     SUM OF TRANSITION PROBABILITIES= 1.0001E+00 FOR MT= 609
+
+     Encountered     7 errors,       0 warnings
+ Done FIZCON

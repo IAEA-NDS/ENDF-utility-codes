@@ -1,9 +1,10 @@
-# set compiler 
-#
+# set default compiler
+
 FC   =  gfortran
 #FC  =  ifort
 #FC  =  af90
 #FC  =  lf95
+
 # FFLAGS are based on compiler setting
 
 ifeq ($(FC),gfortran)
@@ -12,7 +13,7 @@ ifeq ($(FC),gfortran)
   #----GNU FORTRAN compiler
   #-------------------------
   #----flags for production compilation
-  FFLAGS = -O3
+  FFLAGS = -std=legacy -O3
   #----flags for debuging
   #FFLAGS =  -g --bounds-check -std=legacy
 
@@ -25,7 +26,7 @@ else ifeq ($(FC),ifort)
   #----flags for debuging using ifort compiler
   #FFLAGS =  -C -ftrapuv -g -debug all
   #----flags for automatic parallelization
-  #FFLAGS =  -parallel
+  #FFLAGS =  -parallel -openmp-report1 -par-threshold2 -openmp -vec-report1
 
 else ifeq ($(FC),af90)
 
@@ -47,29 +48,10 @@ else ifeq ($(FC),lf90)
 
 endif
 
+OBJF =	psyche.o
 
-PROG = \
-checkr \
-fizcon \
-psyche \
-inter \
-stanef \
+psyche:   $(OBJF)
+	$(FC) -o $@ $(OBJF) $(STATIC)
 
-PREFIX ?= /usr/local
-
-.PHONY: all
-all: $(PROG)
-
-$(PROG):
-	$(FC) $(FFLAGS) -o $@ $@.f $(STATIC)
-
-
-.PHONY: install
-install: $(PROG)
-	mkdir -p $(DEST)$(PREFIX)/bin
-	cp $(PROG) $(DEST)$(PREFIX)/bin
-
-
-.PHONY: clean
-clean: 
-	rm $(PROG)
+clean:
+	rm -f *.o
